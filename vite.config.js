@@ -13,7 +13,7 @@ export default defineConfig({
         compress: {
           drop_console: true
         }
-      }  
+      }
     )
   ],
   resolve: {
@@ -56,4 +56,11 @@ export default defineConfig({
       // }
     ]
   },
+  css: {
+    preprocessorOptions: {
+      scss: {
+        additionalData: '@import \'./src/styles/variables.scss\';'
+      }
+    }
+  }
 })

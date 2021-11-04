@@ -1,14 +1,16 @@
 import { useState } from 'react'
+import React from 'react'
 import logo from 'assets/logo.svg'
-import './App.css'
+import './App.scss'
+// import React from 'react'
 
 import Headers from './components/header'
 
 function App() {
   const [count, aaa] = useState(0)
 
-  const a = (count) => count + 1;
-  
+  const a = (count) => count + 1
+
   return (
     <div className="App">
       <Headers names={count}/>
