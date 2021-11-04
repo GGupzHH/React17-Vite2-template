@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import logo from './logo.svg'
+import logo from 'assets/logo.svg'
 import './App.css'
 
 import Headers from './components/header'
@@ -7,7 +7,7 @@ import Headers from './components/header'
 function App() {
   const [count, aaa] = useState(0)
 
-  const a = (count) => count + 1
+  const a = (count) => count + 1;
   
   return (
     <div className="App">
