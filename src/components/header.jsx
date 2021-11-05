@@ -1,9 +1,18 @@
-import React from "react"
+import React from 'react'
 
 class Headers extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      names: 123
+    }
+  }
   render () {
+    console.log(this.props)
     return (
-      <div>
+      <div onClick={() => {
+        this.props.handleNumbers()
+      } }>
         { this.props.names }
       </div>
     )
