@@ -11,9 +11,13 @@ function App() {
 
   const a = (count) => count + 1
 
+  const handleNumbers = () => {
+    a()
+  }
+
   return (
     <div className="App">
-      <Headers names={count}/>
+      <Headers names={count} handleNumbers={() => aaa(a)} />
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>Hello Vite + React!</p>
