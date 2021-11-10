@@ -42,13 +42,13 @@ const PrivateRoute = function ({
         props => {
           return (
             <Component {...props} {...rest}>
-              {/* {Array.isArray(childrenRouters) ? (
+              {Array.isArray(childrenRouters) ? (
                 <Switch>
-                  {childrenRouters.map((route, idx) => (
-                    <PrivateRoute {...route} key={idx} />
-                  ))}
+                  {childrenRouters.map((routerItem, index) => {
+                    return <PrivateRoute { ...routerItem } key={ index }/>
+                  })}
                 </Switch>
-              ) : null} */}
+              ) : null}
             </Component>
           )
         }

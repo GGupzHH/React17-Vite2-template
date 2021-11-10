@@ -17,15 +17,25 @@ const routerMap = [
       title: 'Demo'
     },
     component: Demo,
-  },
-  {
-    path: '/home1',
+    childrenRouters: [
+      {
+        path: '/demo/home1',
     name: 'home1',
     meta: {
       title: 'Home1'
     },
     component: Home1,
+      }
+    ]
   },
+  // {
+  //   path: '/home1',
+  //   name: 'home1',
+  //   meta: {
+  //     title: 'Home1'
+  //   },
+  //   component: Home1,
+  // },
   {
     path: '/',
     name: 'home',
@@ -33,6 +43,16 @@ const routerMap = [
       title: 'Home'
     },
     component: Home,
+    childrenRouters: [
+      {
+        path: '/home1',
+    name: 'home1',
+    meta: {
+      title: 'Home1'
+    },
+    component: Home1,
+      }
+    ]
   },
 ]
 
