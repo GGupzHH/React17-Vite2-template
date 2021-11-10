@@ -1,10 +1,26 @@
 import React from 'react'
 
-class Home extends React.Component {
+
+class Test extends React.Component {
   render () {
     return (
       <div>
-        Home
+        123
+      </div>
+    )
+  }
+}
+class Home extends React.Component {
+
+
+  render () {
+    return (
+      <div>
+        {
+          [1, 2, 3].map((item, index) => {
+            return <Test key={index}/>
+          })
+        }
       </div>
     )
   }
