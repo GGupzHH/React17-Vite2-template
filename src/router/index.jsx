@@ -1,5 +1,5 @@
 import React from 'react'
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom'
 import ReactDocumentTitle from 'react-document-title'
 
 import PrivateRoute from './privateRoute'
@@ -22,30 +22,48 @@ const routerMap = [
   },
 ]
 
+const RouteNotFound = () => {
+  console.log('🍉🍉🍉🍉🍉🍉🍉')
+  return <Redirect to={Object.assign({}, location, { state: { notFoundError: true } }) }></Redirect>
+}
+
 const router = () => (
   <Router>
-    <Switch>
-      <Route path={'/test'} render={
-        props => (
-          <Demo {...props}>
-            <Route exact path="/test/a">
-              <Home></Home>
-            </Route>
-            <Route exact path="/test/b">
-              <Home1></Home1>
-            </Route>
-        </Demo>
-        )
-      }>
-      </Route>
-      <Route exact path="/test1/:id" render={
-        props => (
-          <Demo1 />
-        )
-        }>
-      </Route>
-      <Route path="*" component={NotFound}/>
-    </Switch>
+    <Route render={ props => {
+      console.log(props)
+      const notFoundError = props.location.state?.notFoundError
+      return (
+        notFoundError ? <NotFound/> : <Switch>
+          <Route path={'/test'} render={
+            props => (
+              <Demo {...props}>
+                <Switch>
+                  <Route exact path="/test/a">
+                    <Home></Home>
+                  </Route>
+                  <Route exact path="/test/b">
+                    <Home1></Home1>
+                  </Route>
+                  <RouteNotFound/>
+                </Switch>
+                {/* <Route path="*" component={NotFound}/> */}
+            </Demo>
+            )
+          }>
+          </Route>
+            <Route path="*" component={NotFound}/>
+
+          {/* <Route exact path="/test1/:id" render={
+            props => (
+              <Demo1 />
+            )
+            }>
+          </Route> */}
+        </Switch>
+      )
+    }
+  }>
+    </Route>
   </Router>
 )
 

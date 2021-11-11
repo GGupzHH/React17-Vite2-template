@@ -13,11 +13,11 @@ class TestDemo extends React.Component {
     console.log(this.props)
     // console.log(this.props.children)
     // console.log()
-    if (this.props.location.pathname === this.props.match.path) {
-      return (
-        <Redirect to='/test/a'/>
-      )
-    }
+    // if (this.props.location.pathname === this.props.match.path) {
+    //   return (
+    //     <Redirect to='/test/a'/>
+    //   )
+    // }
 
     return (
       <div>
