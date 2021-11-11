@@ -21,6 +21,7 @@ class Home extends React.Component {
             return <Test key={index}/>
           })
         }
+        {this.props.children}
       </div>
     )
   }

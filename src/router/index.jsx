@@ -7,6 +7,8 @@ import PrivateRoute from './privateRoute'
 import Home from '@/modules/HomeDemo/pages/home.jsx'
 import Home1 from '@/modules/HomeDemo/pages/home1.jsx'
 import Demo from '@/modules/TestDemo/pages/test.jsx'
+import Demo1 from '@/modules/TestDemo/pages/test1.jsx'
+import NotFound from '@/components/404'
 
 const routerMap = [
 
@@ -17,54 +19,32 @@ const routerMap = [
       title: 'Demo'
     },
     component: Demo,
-    childrenRouters: [
-      {
-        path: '/demo/home1',
-    name: 'home1',
-    meta: {
-      title: 'Home1'
-    },
-    component: Home1,
-      }
-    ]
-  },
-  // {
-  //   path: '/home1',
-  //   name: 'home1',
-  //   meta: {
-  //     title: 'Home1'
-  //   },
-  //   component: Home1,
-  // },
-  {
-    path: '/',
-    name: 'home',
-    meta: {
-      title: 'Home'
-    },
-    component: Home,
-    childrenRouters: [
-      {
-        path: '/home1',
-    name: 'home1',
-    meta: {
-      title: 'Home1'
-    },
-    component: Home1,
-      }
-    ]
   },
 ]
 
 const router = () => (
   <Router>
     <Switch>
-      {
-        routerMap.map((routerItem, index) => {
-          console.log(routerItem)
-          return <PrivateRoute { ...routerItem } key={ index }/>
-        })
-      }
+      <Route path={'/test'} render={
+        props => (
+          <Demo {...props}>
+            <Route exact path="/test/a">
+              <Home></Home>
+            </Route>
+            <Route exact path="/test/b">
+              <Home1></Home1>
+            </Route>
+        </Demo>
+        )
+      }>
+      </Route>
+      <Route exact path="/test1/:id" render={
+        props => (
+          <Demo1 />
+        )
+        }>
+      </Route>
+      <Route path="*" component={NotFound}/>
     </Switch>
   </Router>
 )
