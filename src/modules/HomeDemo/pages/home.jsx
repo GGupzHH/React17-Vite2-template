@@ -23,7 +23,7 @@ function Home () {
   return (
       <div>
         子路由a
-        <p onClick={this.handleClick}>
+        <p onClick={handleClick}>
           点击跳转
         </p>
         {
