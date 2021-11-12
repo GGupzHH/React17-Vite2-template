@@ -1,6 +1,6 @@
 
 import React from 'react'
-import { useLocation, Redirect, useParams } from 'react-router-dom'
+import { useLocation, useParams } from 'react-router-dom'
 
 function Test (props) {
   const location = useLocation()
@@ -14,23 +14,16 @@ function Test (props) {
   )
 }
 
-class TestDemo1 extends React.Component {
-  constructor(props) {
-    super(props)
-    // this.state = {
-    //   names: 123
-    // }
-  }
-  render () {
-    console.log(this.props)
-    // console.log(this.props.children)
 
-    return (
-      <div>
-        <Test />
-      </div>
-    )
-  }
+function TestDemo1 (props) {
+  console.log(props)
+  return (
+    <div>
+      123
+      { props.children }
+      <Test />
+    </div>
+  )
 }
 
 export default TestDemo1

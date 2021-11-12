@@ -7,8 +7,11 @@ import PrivateRoute from './privateRoute'
 import Home from '@/modules/HomeDemo/pages/home.jsx'
 import Home1 from '@/modules/HomeDemo/pages/home1.jsx'
 import Demo from '@/modules/TestDemo/pages/test.jsx'
-import Demo1 from '@/modules/TestDemo/pages/test1.jsx'
+import TestDemo1 from '@/modules/TestDemo/pages/test1.jsx'
+import DemoParams from '@/modules/TestDemo/pages/test-params'
+
 import NotFound from '@/components/404'
+
 
 const routerMap = [
 
@@ -33,7 +36,9 @@ const router = () => (
       console.log(props)
       const notFoundError = props.location.state?.notFoundError
       return (
-        notFoundError ? <NotFound/> : <Switch>
+        notFoundError ?
+        <NotFound/> :
+        <Switch>
           <Route path={'/test'} render={
             props => (
               <Demo {...props}>
@@ -47,18 +52,29 @@ const router = () => (
                   <RouteNotFound/>
                 </Switch>
                 {/* <Route path="*" component={NotFound}/> */}
-            </Demo>
+              </Demo>
             )
           }>
           </Route>
-
+          <Route path={'/testparams'} render={
+            props => {
+              return (
+                <TestDemo1>
+                  <Switch>
+                    <Route exact path='/testparams/home'>
+                    <DemoParams/>
+                    </Route>
+                    <Route exact path='/testparams/:id'>
+                      <DemoParams/>
+                      123
+                    </Route>
+                  </Switch>
+                </TestDemo1>
+              )
+            }
+          }>
+          </Route>
           <Route path="*" component={NotFound}/>
-          {/* <Route exact path="/test1/:id" render={
-            props => (
-              <Demo1 />
-            )
-            }>
-          </Route> */}
         </Switch>
       )
     }
