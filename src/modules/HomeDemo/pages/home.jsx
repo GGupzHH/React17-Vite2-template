@@ -1,23 +1,18 @@
 import React from 'react'
 import { useHistory } from 'react-router-dom'
 
-
-class Test extends React.Component {
-  render () {
-    return (
-      <div>
-        123
-      </div>
-    )
-  }
+function Test () {
+  return (
+    <div>
+      123
+    </div>
+  )
 }
-class Home extends React.Component {
-  constructor (props) {
-    super(props)
-  }
 
 
-  handleClick = (event) => {
+function Home () {
+
+  const handleClick = (event) => {
     console.log(event)
     console.log(this.props)
     this.props.history.push('/test/b', {
@@ -25,8 +20,7 @@ class Home extends React.Component {
     })
   }
 
-  render () {
-    return (
+  return (
       <div>
         子路由a
         <p onClick={this.handleClick}>
@@ -40,7 +34,6 @@ class Home extends React.Component {
         {/* {this.props.children} */}
       </div>
     )
-  }
 }
 
 export default Home
