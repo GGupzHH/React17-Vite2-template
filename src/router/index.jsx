@@ -30,56 +30,83 @@ const RouteNotFound = () => {
   return <Redirect to={Object.assign({}, location, { state: { notFoundError: true } }) }></Redirect>
 }
 
+// const Routeeee = React.lazy(() => {
+
+//   return (
+//   <Route render={(props) => {
+//     console.log(props)
+//     const notFoundError = props.location.state?.notFoundError
+//     return (
+//       notFoundError ?
+//       <NotFound/> :
+//       <Switch>
+//         <Route path={'/test'} render={
+//           props => (
+//             <Demo {...props}>
+//               <Switch>
+//                 <Route exact path="/test/a">
+//                   <Home {...props}></Home>
+//                 </Route>
+//                 <Route exact path="/test/b">
+//                   <Home1 {...props}></Home1>
+//                 </Route>
+//                 <RouteNotFound/>
+//               </Switch>
+//               {/* <Route path="*" component={NotFound}/> */}
+//             </Demo>
+//           )
+//         }>
+//         </Route>
+//         <Route path={'/testparams'} render={
+//           props => {
+//             return (
+//               <TestDemo1>
+//                 <Switch>
+//                   <Route exact path='/testparams/home'>
+//                   <DemoParams/>
+//                   </Route>
+//                   <Route exact path='/testparams/:id'>
+//                     <DemoParams/>
+//                     123
+//                   </Route>
+//                 </Switch>
+//               </TestDemo1>
+//             )
+//           }
+//         }>
+//         </Route>
+//         <Route path="*" component={NotFound}/>
+//       </Switch>
+//     )
+//   }
+// }>
+//   </Route>)
+// }
+// )
+function sleep (time = 0) {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve({})
+    }, time)
+  })
+}
+
+const Foo = React.lazy(async () => {
+  await sleep(1000)
+  console.log(3333)
+
+  // return import('@/modules/HomeDemo/pages/home.jsx')
+  return import('@/modules/HomeDemo/pages/home.jsx')
+})
+
 const router = () => (
   <Router>
-    <Route render={ props => {
-      console.log(props)
-      const notFoundError = props.location.state?.notFoundError
-      return (
-        notFoundError ?
-        <NotFound/> :
-        <Switch>
-          <Route path={'/test'} render={
-            props => (
-              <Demo {...props}>
-                <Switch>
-                  <Route exact path="/test/a">
-                    <Home {...props}></Home>
-                  </Route>
-                  <Route exact path="/test/b">
-                    <Home1 {...props}></Home1>
-                  </Route>
-                  <RouteNotFound/>
-                </Switch>
-                {/* <Route path="*" component={NotFound}/> */}
-              </Demo>
-            )
-          }>
-          </Route>
-          <Route path={'/testparams'} render={
-            props => {
-              return (
-                <TestDemo1>
-                  <Switch>
-                    <Route exact path='/testparams/home'>
-                    <DemoParams/>
-                    </Route>
-                    <Route exact path='/testparams/:id'>
-                      <DemoParams/>
-                      123
-                    </Route>
-                  </Switch>
-                </TestDemo1>
-              )
-            }
-          }>
-          </Route>
-          <Route path="*" component={NotFound}/>
-        </Switch>
-      )
-    }
-  }>
-    </Route>
+      {/* <Routeeee/> */}
+      <Route exact path='/testparams/home' >
+          <React.Suspense fallback={<div>loading...</div>}>
+              <Foo/>
+          </React.Suspense>
+      </Route>
   </Router>
 )
 
