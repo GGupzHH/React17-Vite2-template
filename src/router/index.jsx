@@ -39,10 +39,10 @@ const router = () => (
               <Demo {...props}>
                 <Switch>
                   <Route exact path="/test/a">
-                    <Home></Home>
+                    <Home {...props}></Home>
                   </Route>
                   <Route exact path="/test/b">
-                    <Home1></Home1>
+                    <Home1 {...props}></Home1>
                   </Route>
                   <RouteNotFound/>
                 </Switch>
@@ -51,8 +51,8 @@ const router = () => (
             )
           }>
           </Route>
-            <Route path="*" component={NotFound}/>
 
+          <Route path="*" component={NotFound}/>
           {/* <Route exact path="/test1/:id" render={
             props => (
               <Demo1 />
