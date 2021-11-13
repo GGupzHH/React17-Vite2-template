@@ -44,17 +44,23 @@ const PrivateRoute = function ({
           const notFoundError = props.location.state?.notFoundError
           return (
             notFoundError ?
-            <NotFound/> :
+            <ReactDocumentTitle title='not found'>
+              <NotFound/>
+            </ReactDocumentTitle> :
             <Switch>
               <Route path={'/test'} render={
                 props => (
                   <Demo {...props}>
                     <Switch>
                       <Route exact path="/test/a">
-                        <Home {...props}></Home>
+                        <ReactDocumentTitle title='home'>
+                          <Home {...props}></Home>
+                        </ReactDocumentTitle>
                       </Route>
                       <Route exact path="/test/b">
-                        <Home1 {...props}></Home1>
+                        <ReactDocumentTitle title='home1'>
+                          <Home1 {...props}></Home1>
+                        </ReactDocumentTitle>
                       </Route>
                       <RouteNotFound/>
                     </Switch>
@@ -69,11 +75,14 @@ const PrivateRoute = function ({
                     <TestDemo1>
                       <Switch>
                         <Route exact path='/testparams/home'>
-                          <DemoParams/>
+                          <ReactDocumentTitle title='demoParams'>
+                            <DemoParams/>
+                          </ReactDocumentTitle>
                         </Route>
                         <Route exact path='/testparams/:id'>
-                          <DemoParams/>
-                          123
+                          <ReactDocumentTitle title='demoParams ID'>
+                            <DemoParams/>
+                          </ReactDocumentTitle>
                         </Route>
                       </Switch>
                     </TestDemo1>

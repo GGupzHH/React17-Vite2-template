@@ -10,7 +10,7 @@ function TestParams () {
   console.log(query)
   return (
     <div>
-      1233 TestParams
+      1233 TestParams + id:{p.id}
     </div>
   )
 }
