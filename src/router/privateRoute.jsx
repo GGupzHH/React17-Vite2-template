@@ -2,6 +2,8 @@ import React from 'react'
 
 import { Switch, Route, Redirect, useLocation } from 'react-router-dom'
 
+import ReactDocumentTitle from 'react-document-title'
+
 import Home from '@/modules/HomeDemo/pages/home.jsx'
 import Home1 from '@/modules/HomeDemo/pages/home1.jsx'
 import Demo from '@/modules/TestDemo/pages/test.jsx'
