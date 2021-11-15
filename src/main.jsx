@@ -12,7 +12,7 @@ ReactDOM.render(
    * StrictMode 是一个用以标记出应用中潜在问题的工具。就像 Fragment ，
    * StrictMode 不会渲染任何真实的UI。它为其后代元素触发额外的检查和警告。
   */
-    <Router />,
+  <Router />,
   // <React.StrictMode>
   //     <App />
   // </React.StrictMode>,

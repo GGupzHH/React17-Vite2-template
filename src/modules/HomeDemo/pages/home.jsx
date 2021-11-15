@@ -10,12 +10,11 @@ function Test () {
 }
 
 
-function Home () {
+function Home (props) {
 
   const handleClick = (event) => {
     console.log(event)
-    console.log(this.props)
-    this.props.history.push('/test/b', {
+    props.history.push('/test/b', {
       queueMicrotask: 11
     })
   }
