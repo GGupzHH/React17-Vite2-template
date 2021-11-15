@@ -1,5 +1,5 @@
 import React from 'react'
-import { useHistory } from 'react-router-dom'
+import { useLocation, useHistory } from 'react-router-dom'
 
 function Test () {
   return (
@@ -11,10 +11,12 @@ function Test () {
 
 
 function Home (props) {
+  const l = useLocation()
+  const h = useHistory()
 
   const handleClick = (event) => {
     console.log(event)
-    props.history.push('/test/b', {
+    h.push('/test/b', {
       queueMicrotask: 11
     })
   }
@@ -30,7 +32,7 @@ function Home (props) {
             return <Test key={index}/>
           })
         }
-        {/* {this.props.children} */}
+        {props.children}
       </div>
     )
 }
