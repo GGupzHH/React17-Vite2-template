@@ -47,7 +47,7 @@ function Home (props) {
             return <Test key={index}/>
           })
         }
-        {/* {props.children} */}
+        {props.children}
       </div>
     )
 }

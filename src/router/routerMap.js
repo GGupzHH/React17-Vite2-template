@@ -7,7 +7,7 @@ import DemoParams from '@/modules/TestDemo/pages/test-params'
 const routerMap = [
   {
     path: '/test',
-    name: 'demo',
+    name: 'test',
     meta: {
       title: 'test'
     },
@@ -17,7 +17,7 @@ const routerMap = [
 
       {
         path: '/test/a',
-        name: 'demo',
+        name: '/test/a',
         meta: {
           title: 'test/a'
         },
@@ -46,7 +46,7 @@ const routerMap = [
       },
       {
         path: '/test/b',
-        name: 'demo',
+        name: '/test/b',
         meta: {
           title: 'Demo'
         },
@@ -65,7 +65,7 @@ const routerMap = [
     child: [
       {
         path: '/testparams/home',
-        name: 'demo',
+        name: '/testparams/ho',
         meta: {
           title: 'Demo'
         },
@@ -74,7 +74,7 @@ const routerMap = [
       },
       {
         path: '/testparams/:id',
-        name: 'demo',
+        name: '/testparams/:id',
         meta: {
           title: 'Demo'
         },

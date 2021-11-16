@@ -22,12 +22,15 @@ const recursiveRouters = routeList => (
       props => (
         <ReactDocumentTitle title={routeItem.meta.title}>
           <routeItem.component>
-            <Switch>
-              {
-                recursiveRouters(routeItem.child)
-              }
-              <RouteNotFound />
-            </Switch>
+            {
+              (routeItem.child || '')
+              && <Switch>
+                  {
+                    recursiveRouters(routeItem.child)
+                  }
+                  <RouteNotFound />
+                </Switch>
+            }
           </routeItem.component>
         </ReactDocumentTitle>
       )
@@ -35,6 +38,7 @@ const recursiveRouters = routeList => (
     </Route>
   ))
 )
+
 
 const PrivateRoute = function ({
   component: Component,
