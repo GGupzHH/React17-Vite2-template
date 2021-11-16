@@ -13,6 +13,8 @@ const routerMap = [
     },
     component: Demo,
     child: [
+
+
       {
         path: '/test/a',
         name: 'demo',
@@ -20,18 +22,27 @@ const routerMap = [
           title: 'test/a'
         },
         component: Home,
-        // exact: true,
-        child: [
-          {
-            path: '/test/a/c',
-            name: 'demo',
-            meta: {
-              title: 'est/a/c'
-            },
-            component: DemoParams,
-            exact: true,
-          },
-        ]
+        exact: true,
+        // child: [
+        //   {
+        //     path: '/test/a',
+        //     name: 'demo',
+        //     meta: {
+        //       title: 'test/a'
+        //     },
+        //     component: Home1,
+        //     exact: true,
+        //   },
+        //   {
+        //     path: '/test/a/c',
+        //     name: 'demo',
+        //     meta: {
+        //       title: 'est/a/c'
+        //     },
+        //     component: DemoParams,
+        //     exact: true,
+        //   },
+        // ]
       },
       {
         path: '/test/b',
@@ -41,7 +52,7 @@ const routerMap = [
         },
         component: Home1,
         exact: true,
-      }
+      },
     ]
   },
   {
