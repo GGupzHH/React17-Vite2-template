@@ -1,7 +1,10 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { useSelector, useDispatch } from 'react-redux'
 import { useLocation, useHistory } from 'react-router-dom'
 
 import { Button } from 'antd'
+
+
 
 function Test () {
   return (
@@ -12,15 +15,26 @@ function Test () {
 }
 
 
+
+
 function Home (props) {
   const l = useLocation()
   const h = useHistory()
-  console.log(props)
+  const demo = useSelector(({ demo }) => {
+    return demo
+  })
+
+  const dispatch = useDispatch()
+
   const handleClick = (event) => {
-    console.log(event)
-    h.push('/test/b', {
-      queueMicrotask: 11
+
+    dispatch({
+      type: 'LOGIN',
+      data: demo
     })
+    // h.push('/test/b', {
+    //   queueMicrotask: 11
+    // })
   }
 
   return (
@@ -30,7 +44,7 @@ function Home (props) {
           点击跳转
         </p>
         <Button type="primary" danger>
-          Primary
+          { demo.demoInfo.mysqlVersion }
         </Button>
         <Button danger>Default</Button>
         <Button type="dashed" danger>
