@@ -5,6 +5,8 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useLocation, useRouteMatch, Redirect } from 'react-router-dom'
 import { setHomeInfo } from '@/store/actions'
 
+import IconFont from '@/components/IconFont'
+
 function TestDemo (props) {
   const location = useLocation()
   const match = useRouteMatch()
@@ -25,8 +27,22 @@ function TestDemo (props) {
     console.log(res)
   }
 
+  const icon = {}
+
+  setTimeout(() => {
+    icon.name = 12333
+  }, 1000)
+
+  const handleClickParent = () => {
+    console.log('父组件点击事件触发 子传父 给子组件传一个回调 父组件执行 就能获取到子组件传入的数据')
+  }
+
   return (
     <div>
+      <div>
+        icon
+        <IconFont icon={icon.name} handleClick={handleClickParent}/>
+      </div>
       header 嵌套路由-父路由
       <p onClick={handleClick}>
         dispatch 异步 home-type{ home.homeInfo.type }
