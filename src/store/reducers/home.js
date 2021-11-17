@@ -15,10 +15,16 @@ const initialState = {
 }
 
 function homeSystem (state = initialState, actions) {
+  console.log(actions)
   switch (actions.type) {
     case 'HOMEINFO':
-        console.log('HOMEINFO reduces')
-        return state
+      console.log('HOMEINFO reduces')
+      return {
+        homeInfo: {
+          ...state.homeInfo,
+          type: actions.info
+        },
+      }
     default:
       return state
   }
