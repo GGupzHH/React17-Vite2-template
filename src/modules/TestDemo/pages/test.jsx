@@ -27,12 +27,6 @@ function TestDemo (props) {
     console.log(res)
   }
 
-  const icon = {}
-
-  setTimeout(() => {
-    icon.name = 12333
-  }, 1000)
-
   const handleClickParent = () => {
     console.log('父组件点击事件触发 子传父 给子组件传一个回调 父组件执行 就能获取到子组件传入的数据')
   }
@@ -41,7 +35,7 @@ function TestDemo (props) {
     <div>
       <div>
         icon
-        <IconFont icon={icon.name} handleClick={handleClickParent}/>
+        <IconFont icon='icon-export' disabled handleClick={handleClickParent}/>
       </div>
       header 嵌套路由-父路由
       <p onClick={handleClick}>
