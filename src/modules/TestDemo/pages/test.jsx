@@ -7,6 +7,10 @@ import { setHomeInfo } from '@/store/actions'
 
 import IconFont from '@/components/IconFont'
 
+import { Layout } from 'antd'
+
+const { Header, Footer, Content } = Layout
+
 function TestDemo (props) {
   const location = useLocation()
   const match = useRouteMatch()
@@ -37,6 +41,11 @@ function TestDemo (props) {
         icon
         <IconFont icon='icon-export' disabled handleClick={handleClickParent}/>
       </div>
+      <Layout>
+        <Header>Header</Header>
+        <Content>Content</Content>
+        <Footer>Footer</Footer>
+      </Layout>
       header 嵌套路由-父路由
       <p onClick={handleClick}>
         dispatch 异步 home-type{ home.homeInfo.type }
