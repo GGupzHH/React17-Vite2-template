@@ -4,35 +4,32 @@ import './index.scss'
 function IconFont (props) {
   console.log(props)
 
-  // const [num, setNum] = useState(1)
-
-  // const nums = useEffect(() => {
-  //   console.log('🍉变了吗 ', num)
-  //   console.log('🍉变了吗 ', num * 2)
-  //   return num * 2
-  // }, [num])
-
-  // console.log(nums)
-  // setTimeout(() => {
-  //   num
-  // }, 1000)
-  const handleClick = (parentClick) => {
+  const handleClick = () => {
     props.handleClick()
-    // try {
-    // }catch (error) {
-
-    // }
   }
 
+  const settingClass = () => {
+    const className = []
+    if (props.verticalCenter) {
+      className.push('middle')
+    }
+    if (props.cursor) {
+      className.push('cursor')
+    }
+    if (props.disabled) {
+      className.push('disabled')
+    }
+    console.log('icon-font' + className.join(' '))
+    return 'icon-font ' + className.join(' ')
+  }
 
   return (
     <svg
-      className="icon-font"
+      className={settingClass()}
       aria-hidden="true"
-      // :class="getClassName"
       onClick={handleClick}
     >
-      {/* <filter
+      <filter
         id="drop-shadow"
         xmlns="http://www.w3.org/2000/svg"
       >
@@ -55,7 +52,7 @@ function IconFont (props) {
           <feMergeNode />
           <feMergeNode in="SourceGraphic" />
         </feMerge>
-      </filter> */}
+      </filter>
       <g
         filter={props.shadow && 'url(#drop-shadow)'}
       >
