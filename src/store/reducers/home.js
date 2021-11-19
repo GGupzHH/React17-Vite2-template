@@ -15,7 +15,6 @@ const initialState = {
 }
 
 function homeSystem (state = initialState, actions) {
-  console.log(actions)
   switch (actions.type) {
     case 'HOMEINFO':
       console.log('HOMEINFO reduces')

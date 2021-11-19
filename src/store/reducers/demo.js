@@ -15,7 +15,6 @@ const initialState = {
 }
 
 function demoSystem (state = initialState, actions) {
-  console.log(actions)
   switch (actions.type) {
     case 'LOGIN':
         console.log('LOGIN reduces')

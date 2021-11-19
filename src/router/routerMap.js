@@ -3,6 +3,7 @@ import Home1 from '@/modules/HomeDemo/pages/home1.jsx'
 import Demo from '@/modules/TestDemo/pages/test.jsx'
 import TestDemo1 from '@/modules/TestDemo/pages/test1.jsx'
 import DemoParams from '@/modules/TestDemo/pages/test-params'
+import Login from '@/modules/UserAccount/pages/login'
 
 const routerMap = [
   {
@@ -13,8 +14,6 @@ const routerMap = [
     },
     component: Demo,
     child: [
-
-
       {
         path: '/test/a',
         name: '/test/a',
@@ -82,6 +81,14 @@ const routerMap = [
         exact: true,
       }
     ]
+  },
+  {
+    path: '/login',
+    name: 'Login',
+    meta: {
+      title: 'testparams'
+    },
+    component: Login,
   }
 ]
 
