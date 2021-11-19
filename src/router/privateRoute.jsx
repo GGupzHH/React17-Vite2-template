@@ -10,6 +10,8 @@ import NotFound from '@/components/404'
 
 import routerMap from '@/router/routerMap.js'
 
+import Login from '@/modules/UserAccount/pages/login'
+
 const RouteNotFound = () => {
   console.log('🍉🍉🍉🍉🍉🍉🍉')
   return <Redirect to={Object.assign({}, location, { state: { notFoundError: true } }) }></Redirect>
@@ -50,7 +52,10 @@ const PrivateRoute = function ({
     <Route render={(props) => {
           console.log(props)
           const notFoundError = props.location.state?.notFoundError
+          // const token = false
           return (
+            // token
+            // ?
             <App>
               {
                 notFoundError ?
@@ -65,6 +70,7 @@ const PrivateRoute = function ({
                 </Switch>
               }
             </App>
+            // : <Login/>
           )
         }
       }>
