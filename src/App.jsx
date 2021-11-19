@@ -1,17 +1,37 @@
-import { useState } from 'react'
 import React from 'react'
-import logo from 'assets/logo.svg'
 import './App.scss'
-// import React from 'react'
 
-import Headers from './components/header'
+import { useLocation, Redirect, useHistory } from 'react-router-dom'
+
+
+import NotFound from '@/components/404'
 
 function App(props) {
+  const l = useLocation()
+  const h = useHistory()
+  console.log(l)
+  console.log(h)
+  console.log(props)
+  // 去校验是否存在token
+  const token = false
 
+  if (!token) {
+    h.replace('/login')
+    return (
+      <>
+        {props.children}
+      </>
+    )
+  }
   return (
+    // token
+    // ?
     <div className="App">
       {props.children}
     </div>
+    // : <Redirect to='/login'>
+    //   {props.children}
+    //   </Redirect>
   )
 }
 
