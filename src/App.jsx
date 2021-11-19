@@ -6,7 +6,7 @@ import { useLocation, Redirect, useHistory } from 'react-router-dom'
 function App(props) {
   const l = useLocation()
   const h = useHistory()
-  const token = true
+  const token = false
 
   console.log(l, h)
   if (!token && l.pathname !== '/login') {
