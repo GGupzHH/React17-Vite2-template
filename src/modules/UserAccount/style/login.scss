@@ -1,0 +1,22 @@
+.wrap-login {
+  width: 320px;
+  // height: 400px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  .wrap-logo {
+    height: 50px;
+    img {
+      height: 100%;
+    }
+  }
+  .wrap-login-form {
+    margin-top: 18px;
+  }
+  .login-input {
+    input::placeholder {
+      padding-left: 2px;
+    }
+  }
+}

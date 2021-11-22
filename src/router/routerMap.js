@@ -85,6 +85,7 @@ const routerMap = [
   {
     path: '/login',
     name: 'Login',
+    exact: true,
     meta: {
       title: 'testparams'
     },

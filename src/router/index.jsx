@@ -5,9 +5,7 @@ import PrivateRoute from '@/router/privateRoute'
 
 const router = () => (
   <Router>
-    <React.Suspense fallback={<div>loading...</div>}>
-      <PrivateRoute/>
-    </React.Suspense>
+    <PrivateRoute/>
   </Router>
 )
 
