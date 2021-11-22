@@ -4,6 +4,14 @@ import { Form, Input, Button } from 'antd'
 
 import '@/modules/UserAccount/style/login.scss'
 
+import Logo from '@/assets/logo.svg'
+import ViteLogo from '@/assets/favicon.svg'
+
+import {
+  SmileTwoTone,
+  LockOutlined
+} from '@ant-design/icons'
+
 function Login () {
 
   const onFinish = (values) => {
@@ -16,36 +24,44 @@ function Login () {
 
   return (
     <div className="wrap-login">
-      <div>
-        <img src="" alt="" />
+      <div className="wrap-logo">
+        <img src={ Logo } alt="" />
+        <img src={ ViteLogo } alt="" />
       </div>
       <Form
+        className="wrap-login-form"
         name="basic"
-        labelCol={{ span: 8 }}
-        wrapperCol={{ span: 16 }}
+        // labelCol={{ span: 8 }}
+        // wrapperCol={{ span: 16 }}
         initialValues={{ remember: true }}
         onFinish={onFinish}
         onFinishFailed={onFinishFailed}
         autoComplete="off"
       >
         <Form.Item
-          label="Username"
           name="username"
           rules={[{ required: true, message: 'Please input your username!' }]}
         >
-          <Input />
+          <Input
+            className="login-input"
+            placeholder="Username"
+            prefix={ <SmileTwoTone /> }
+          />
         </Form.Item>
 
         <Form.Item
-          label="Password"
           name="password"
           rules={[{ required: true, message: 'Please input your password!' }]}
         >
-          <Input.Password />
+          <Input.Password
+            className="login-input"
+            placeholder="Password"
+            prefix={<LockOutlined />}
+          />
         </Form.Item>
 
-        <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
-          <Button type="primary" htmlType="submit">
+        <Form.Item>
+          <Button type="primary" htmlType="submit" block={true}>
             Submit
           </Button>
         </Form.Item>
