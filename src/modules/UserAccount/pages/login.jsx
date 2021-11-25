@@ -12,10 +12,26 @@ import {
   LockOutlined
 } from '@ant-design/icons'
 
-function Login () {
+import {
+  asyncSetUserInfo
+} from '@/store/actions'
+import {
+  useDispatch,
+  useSelector
+} from 'react-redux'
 
-  const onFinish = (values) => {
+function Login () {
+  const userStore = useSelector(({user}) => {
+    return user
+  })
+
+  const dispatch = useDispatch()
+
+  const onFinish = async (values) => {
     console.log('Success:', values)
+    const res = await dispatch(asyncSetUserInfo())
+    console.log('Success:', res)
+    console.log('Success:', userStore)
   }
 
   const onFinishFailed = (errorInfo) => {
