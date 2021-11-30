@@ -1,3 +1,8 @@
+import {
+  login
+} from '@/modules/UserAccount/api'
+
+import ACTIONS from './ACTIONS_TYPE'
 
 const initialState = {
   demoInfo: {
@@ -14,9 +19,20 @@ const initialState = {
   }
 }
 
-function demoSystem (state = initialState, actions) {
+export const actions = {
+  setUser (userInfo) {
+    console.log('setUser')
+
+    return {
+      type: ACTIONS.DEMO_INFO,
+      userInfo
+    }
+  }
+}
+
+export default function reducers (state = initialState, actions) {
   switch (actions.type) {
-    case 'LOGIN':
+    case ACTIONS.DEMO_INFO:
         console.log('LOGIN reduces')
         actions.data.demoInfo.mysqlVersion = Math.random()
         console.log(state)
@@ -28,5 +44,3 @@ function demoSystem (state = initialState, actions) {
       return state
   }
 }
-
-export default demoSystem
