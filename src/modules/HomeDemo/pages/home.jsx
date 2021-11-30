@@ -4,7 +4,7 @@ import { useLocation, useHistory } from 'react-router-dom'
 
 import { Button } from 'antd'
 
-
+import { actions } from '@/modules/HomeDemo/store'
 
 function Test () {
   return (
@@ -28,13 +28,10 @@ function Home (props) {
 
   const handleClick = (event) => {
 
-    dispatch({
-      type: 'LOGIN',
-      data: demo
+    dispatch(actions.asyncSetHomeInfor())
+    h.push('/test/b', {
+      queueMicrotask: 11
     })
-    // h.push('/test/b', {
-    //   queueMicrotask: 11
-    // })
   }
 
   return (

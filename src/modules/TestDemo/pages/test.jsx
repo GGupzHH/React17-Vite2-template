@@ -3,7 +3,8 @@ import React from 'react'
 
 import { useDispatch, useSelector } from 'react-redux'
 import { useLocation, useRouteMatch, Redirect } from 'react-router-dom'
-import { setHomeInfo } from '@/store/actions'
+import { actions as demoTestActions } from '@/modules/TestDemo/store'
+import { actions as homeActions } from '@/modules/HomeDemo/store'
 
 import IconFont from '@/components/IconFont'
 
@@ -27,7 +28,7 @@ function TestDemo (props) {
   }
 
   const handleClick = async (event) => {
-    const res = await dispatch(setHomeInfo('123'))
+    const res = await dispatch(homeActions.setHomeInfo('123'))
     console.log(res)
   }
 

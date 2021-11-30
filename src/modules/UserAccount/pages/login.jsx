@@ -13,8 +13,9 @@ import {
 } from '@ant-design/icons'
 
 import {
-  asyncSetUserInfo
-} from '@/store/actions'
+  actions
+} from '@/modules/UserAccount/store'
+
 import {
   useDispatch,
   useSelector
@@ -29,7 +30,7 @@ function Login () {
 
   const onFinish = async (values) => {
     console.log('Success:', values)
-    const res = await dispatch(asyncSetUserInfo())
+    const res = await dispatch(actions.asyncSetUserInfo())
     console.log('Success:', res)
     console.log('Success:', userStore)
   }
