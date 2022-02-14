@@ -4,8 +4,8 @@ import './index.scss'
 function IconFont (props) {
   console.log(props)
 
-  const handleClick = () => {
-    props.handleClick()
+  const handleClick = (event) => {
+    props.handleClick && props.handleClick(event)
   }
 
   const settingClass = () => {
